@@ -1,6 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
+const Title = styled.h1`
+    color: red;
+    padding: 15px;
+    font-family: 'Space Mono', monospace;
+`;
+
+const Img = styled.img`
+    width: 50vw;
+    hight: 50vh;
+    margin-bottom: 1%;
+`;
+
+const Info = styled.p`
+    display: inline;
+    margin: 15%;
+    color: white;
+`;
+
+const Explain = styled.p`
+    display: flex;
+    width: 75vw;
+    margin: 3% auto;
+    color: white;
+    padding-bottom: 75px;
+`;
 
 const Api = () => {
     const [dayImg, setDayImg] = useState({data:[]});
@@ -18,11 +44,11 @@ const Api = () => {
 
     return (
         <div>
-            <h2>{nasa.title} </h2>
-            <img src={nasa.url} alt={nasa.title} />
-            <p>{nasa.copyright}</p>
-            <p>{nasa.date}</p>
-            <p>{nasa.explanation}</p>
+            <Title>{nasa.title} </Title>
+            <Img src={nasa.url} alt={nasa.title} /><br/>
+            <Info>{nasa.copyright}</Info>
+            <Info>{nasa.date}</Info>
+            <Explain>{nasa.explanation}</Explain>
         </div>
     )
 }
